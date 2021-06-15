@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E32B88B2678DB8E001FD3CE /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8E32B88A2678DB8E001FD3CE /* SleepCalculator.mlmodel */; };
 		8EA8397726764BB3005D0C35 /* BetterRestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA8397626764BB3005D0C35 /* BetterRestApp.swift */; };
 		8EA8397926764BB3005D0C35 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA8397826764BB3005D0C35 /* ContentView.swift */; };
 		8EA8397B26764BC0005D0C35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EA8397A26764BC0005D0C35 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E32B88A2678DB8E001FD3CE /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SleepCalculator.mlmodel; sourceTree = "<group>"; };
 		8EA8397326764BB3005D0C35 /* BetterRest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterRest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA8397626764BB3005D0C35 /* BetterRestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterRestApp.swift; sourceTree = "<group>"; };
 		8EA8397826764BB3005D0C35 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				8EA8397826764BB3005D0C35 /* ContentView.swift */,
 				8EA8397A26764BC0005D0C35 /* Assets.xcassets */,
 				8EA8397F26764BC0005D0C35 /* Info.plist */,
+				8E32B88A2678DB8E001FD3CE /* SleepCalculator.mlmodel */,
 				8EA8397C26764BC0005D0C35 /* Preview Content */,
 			);
 			path = BetterRest;
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EA8397926764BB3005D0C35 /* ContentView.swift in Sources */,
+				8E32B88B2678DB8E001FD3CE /* SleepCalculator.mlmodel in Sources */,
 				8EA8397726764BB3005D0C35 /* BetterRestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
