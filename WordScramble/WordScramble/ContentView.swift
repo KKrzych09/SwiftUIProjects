@@ -18,10 +18,21 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                TextField("Enter your word", text: $newWord, onCommit: addNewWord)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-                    .autocapitalization(.none)
+                Section {
+                    TextField("Enter your word", text: $newWord, onCommit: addNewWord)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+                        .autocapitalization(.none)
+                    
+                    Button(action: startGame, label: {
+                        Text("Draw new word")
+                            .foregroundColor(.black)
+                            .padding()
+                            .background(Color.accentColor)
+                            .cornerRadius(8)
+                    })
+                }
+                
                 
                 List(usedWords, id: \.self){
                     Image(systemName: "\($0.count).circle")
@@ -29,7 +40,6 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle(rootWord)
-            .onAppear(perform: startGame)
             .alert(isPresented: $showingError) {
                 Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
             }
@@ -57,8 +67,13 @@ struct ContentView: View {
         }
         
         guard isReal(word: answer) else {
-            wordError(title: "Word not possible", message: "That is not a real word")
-            return
+            if (answer.count <= 3) {
+                wordError(title: "Word not possible", message: "Word cannot be shorter or even 3 letters.")
+                return
+            } else{
+                wordError(title: "Word not possible", message: "That is not a real word")
+                return
+            }
         }
         
         usedWords.insert(answer, at: 0)
@@ -108,7 +123,11 @@ struct ContentView: View {
         let range = NSRange(location: 0, length: word.utf16.count)
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
         
-        return misspelledRange.location == NSNotFound
+        if (word.count <= 3) {
+            return false
+        } else {
+            return misspelledRange.location == NSNotFound
+        }
     }
     
     func wordError(title: String, message: String) {
