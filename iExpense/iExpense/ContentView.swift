@@ -34,6 +34,16 @@ struct ExpenseItem: Identifiable, Codable {
     let name: String
     let type: String
     let amount: Int
+    
+    func getColor() -> Color {
+        let currentAmount = amount
+        if (currentAmount >= 0 && currentAmount <= 10) {
+            return Color.red
+        } else if (currentAmount > 10 && currentAmount <= 100) {
+            return Color(red: 0.6078, green: 0.5294, blue: 0.0471)
+        }
+        return Color.green
+    }
 }
 
 struct ContentView: View {
@@ -53,12 +63,13 @@ struct ContentView: View {
                         
                         Spacer()
                         Text("$\(item.amount)")
+                            .foregroundColor(item.getColor())
                     }
                 }
                 .onDelete(perform: removeItems)
             }
             .navigationBarTitle("iExpense")
-            .navigationBarItems(trailing:
+            .navigationBarItems(leading: EditButton(), trailing:
                 Button(action: {
                     showingAddExpense = true
                 }) {
