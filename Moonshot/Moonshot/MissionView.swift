@@ -26,6 +26,10 @@ struct MissionView: View {
                         .frame(maxWidth: geometry.size.width * 0.7)
                         .padding(.top)
                     
+                    Text("Launch date: \(self.mission.formattedLaunchDate)")
+                        .fontWeight(.bold)
+                        .font(.system(size: 20))
+                    
                     Text(self.mission.description)
                         .padding()
                     
@@ -58,8 +62,8 @@ struct MissionView: View {
         }
         .navigationBarTitle(Text(mission.displayName), displayMode: .inline)
         }
-    
-        init(mission: Mission, astronauts: [Astronaut]) {
+
+    init(mission: Mission, astronauts: [Astronaut]) {
             self.mission = mission
             
             var matches = [CrewMember]()
