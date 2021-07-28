@@ -12,6 +12,7 @@
 		8E2A3ACC26AEE67900EB164E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E2A3ACB26AEE67900EB164E /* Assets.xcassets */; };
 		8E2A3ACF26AEE67900EB164E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E2A3ACE26AEE67900EB164E /* Preview Assets.xcassets */; };
 		8E2A3AD826AF118100EB164E /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A3AD726AF118100EB164E /* AddView.swift */; };
+		8EB2FD0126B14E2400A1A9A1 /* HabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB2FD0026B14E2400A1A9A1 /* HabitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		8E2A3ACE26AEE67900EB164E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8E2A3AD026AEE67900EB164E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E2A3AD726AF118100EB164E /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		8EB2FD0026B14E2400A1A9A1 /* HabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				8E2A3AC726AEE66C00EB164E /* ZappyHabitsApp.swift */,
 				8E2A3AC926AEE66C00EB164E /* ContentView.swift */,
 				8E2A3AD726AF118100EB164E /* AddView.swift */,
+				8EB2FD0026B14E2400A1A9A1 /* HabitView.swift */,
 				8E2A3ACB26AEE67900EB164E /* Assets.xcassets */,
 				8E2A3AD026AEE67900EB164E /* Info.plist */,
 				8E2A3ACD26AEE67900EB164E /* Preview Content */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E2A3ACA26AEE66C00EB164E /* ContentView.swift in Sources */,
+				8EB2FD0126B14E2400A1A9A1 /* HabitView.swift in Sources */,
 				8E2A3AC826AEE66C00EB164E /* ZappyHabitsApp.swift in Sources */,
 				8E2A3AD826AF118100EB164E /* AddView.swift in Sources */,
 			);

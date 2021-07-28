@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct AddView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State private var name = ""
     @State private var description = ""
-    @State private var checked = false
+    @State private var days = "Mon"
+    @State private var amount = 0
     @State private var day = 0
     @State private var totalChars = 0
     @State private var lastText = ""
+    @ObservedObject var activities: Activities
     
     static let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     
@@ -48,18 +51,26 @@ struct AddView: View {
                             .padding(.top, 100)
                 }
                    
-                Picker("Days", selection: $day) {
+                Picker("Days", selection: $days) {
                     ForEach(Self.days, id: \.self) {
                         Text($0)
                     }
                 }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
             }
+            .navigationBarTitle("New habit")
+            .navigationBarItems(trailing: Button("Save") {
+                let item = Activity(name: self.name, description: self.description, days: self.days, amount: self.amount)
+                self.activities.items.append(item)
+                self.presentationMode.wrappedValue.dismiss()
+            })
         }
     }
 }
 
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
-        AddView()
+        AddView(activities: Activities())
     }
 }
