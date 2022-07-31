@@ -12,7 +12,10 @@ struct AddressView: View {
     
     var hasValidAddress: Bool {
         if order.name.count < 1 || order.streetAddress.count < 1 || order.city.count < 1 || order.zip.count < 6 {
-            return false
+            if order.zip is String == true {
+                return false
+            }
+            //return false
         }
         
         return true
