@@ -16,7 +16,34 @@ struct AlbumListView: View {
 //                FullImageRow(album: $albums[index])
                 
                 BasicTextImageRow(album: $albums[index])
+                    .swipeActions(edge: .leading, allowsFullSwipe: false, content: {
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "star")
+                        }
+                        .tint(.green)
+                        
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "square.and.arrow.up")
+                        }
+                        .tint(.orange)
+                        
+                    })
+                    .swipeActions(edge: .trailing, allowsFullSwipe: true, content: {
+                        Button(role:  .destructive, action: {
+                            albums.remove(at: index)
+                        }) {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    })
+                    
             }
+            .onDelete(perform: { indexSet in
+                albums.remove(atOffsets: indexSet)
+            })
             .listRowSeparator(.hidden)
         }
         .listStyle(.plain)
@@ -50,7 +77,7 @@ struct BasicTextImageRow: View {
                 .resizable()
                 .frame(width: 120, height: 118)
                 .cornerRadius(5)
-                .overlay( album.isFavorite ?
+                .overlay(album.isFavorite ?
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
                             .position(x: 100, y: 18)
@@ -71,27 +98,49 @@ struct BasicTextImageRow: View {
             
             
         }
-        .onTapGesture {
-            showOptions.toggle()
-        }
-        .actionSheet(isPresented: $showOptions) {
-            ActionSheet(title: Text("What do you want to do?"),
-                        message: nil,
-                        buttons: [
-                            .default(Text("Add to collection")) {
-                                self.showError.toggle()
-                            },
-                            .default(album.isFavorite ? Text("Remove from favorites") : Text("Mark as favorite")) {
-                                self.album.isFavorite.toggle()
-                            },
-                            .cancel()
-                            ])
+        .contextMenu {
+            Button(action: {
+                
+            }) {
+                HStack {
+                    Text("Add to collection")
+                    Image(systemName: "plus")
+                }
+            }
+            
+            Button(action: {
+                self.album.isFavorite.toggle()
+            }) {
+                HStack {
+                    Text(album.isFavorite ? "Remove from favorites" : "Mark as a favorite" )
+                    Image(systemName: "star")
+                }
+            }
+            
+            Button(action: {
+                self.showOptions.toggle()
+            }) {
+                HStack {
+                    Text("Share")
+                    Image(systemName: "square.and.arrow.up")
+                }
+            }
         }
         .alert(isPresented: $showError) {
             Alert(title: Text("Not available yet"),
                   message: Text("Sorry, this feature is not available yet"),
                   primaryButton: .default(Text("OK")),
                   secondaryButton: .cancel())
+        }
+        .sheet(isPresented: $showOptions) {
+            
+            let defaultText = "Just adding to collection an album \(album.name)"
+            
+            if let imageToShare = UIImage(named: album.image) {
+                ActivityView(activityItems: [defaultText, imageToShare])
+            } else {
+                ActivityView(activityItems: [defaultText])
+            }
         }
     }
 }
