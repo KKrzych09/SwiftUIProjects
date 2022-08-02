@@ -13,6 +13,7 @@
 		8E1A6A642896B955002062CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1A6A632896B955002062CD /* Preview Assets.xcassets */; };
 		8E49A1A62897B45C00562223 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1A52897B45C00562223 /* Album.swift */; };
 		8E49A1AA2897D69600562223 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1A92897D69600562223 /* ActivityView.swift */; };
+		8E49A1AC2897E29900562223 /* AlbumDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1AB2897E29900562223 /* AlbumDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		8E1A6A632896B955002062CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8E49A1A52897B45C00562223 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		8E49A1A92897D69600562223 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		8E49A1AB2897E29900562223 /* AlbumDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				8E1A6A5E2896B94F002062CD /* AlbumListView.swift */,
 				8E49A1A92897D69600562223 /* ActivityView.swift */,
+				8E49A1AB2897E29900562223 /* AlbumDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E49A1AC2897E29900562223 /* AlbumDetailView.swift in Sources */,
 				8E1A6A5F2896B94F002062CD /* AlbumListView.swift in Sources */,
 				8E49A1AA2897D69600562223 /* ActivityView.swift in Sources */,
 				8E1A6A5D2896B94F002062CD /* MusicBud1_0App.swift in Sources */,

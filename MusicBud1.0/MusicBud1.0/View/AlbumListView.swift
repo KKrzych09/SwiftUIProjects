@@ -8,45 +8,52 @@
 import SwiftUI
 
 struct AlbumListView: View {
-    @State var albums = [Album(name: "Romantic Psycho (JPN Edition)", artistName: "Quebonafide", location: "Tokyo", image: "romantic_psycho_jpn", isFavorite: false), Album(name: "Romantic Psycho (EU Edition)", artistName: "Quebonafide", location: "Madrid", image: "romantic_psycho_eu", isFavorite: false), Album(name: "Egzotyka", artistName: "Quebonafide", location: "New York", image: "egzotyka", isFavorite: false), Album(name: "Ezoteryka", artistName: "Quebonafide", location: "Ciechanów", image: "ezoteryka", isFavorite: false), Album(name: "Eklektyka", artistName: "Quebonafide", location: "Ciechanów", image: "eklektyka", isFavorite: false), Album(name: "Dla Fanów Eklektyki", artistName: "Quebonafide", location: "Warszawa", image: "dla_fanow_eklektyki", isFavorite: false), Album(name: "Dla Fanek Euforii", artistName: "Quebonafide", location: "Warszawa", image: "dla_fanek_euforii", isFavorite: false), Album(name: "Taconafide", artistName: "Quebonafide, Taco Hemingway", location: "Kraków", image: "taconafide", isFavorite: false), Album(name: "Europa", artistName: "Taco Hemingway", location: "Bruksela", image: "europa", isFavorite: false), Album(name: "Jarmark", artistName: "Taco Hemingway", location: "Warszawa", image: "jarmark", isFavorite: false), Album(name: "Szprycer", artistName: "Taco Hemingway", location: "Poznań", image: "szprycer", isFavorite: false), Album(name: "Marmur", artistName: "Taco Hemingway", location: "Gdańsk", image: "marmur", isFavorite: false), Album(name: "Wosk", artistName: "Taco Hemingway", location: "Warszawa", image: "wosk", isFavorite: false), Album(name: "Umowa o Dzieło", artistName: "Taco Hemingway", location: "Warszawa", image: "umowa_o_dzielo", isFavorite: false), Album(name: "Trójkąt Warszawski", artistName: "Taco Hemingway", location: "Warszawa", image: "trojkat_warszawski", isFavorite: false)]
+    @State var albums = [Album(name: "Romantic Psycho (JPN Edition)", artistName: "Quebonafide", location: "Tokyo", image: "romantic_psycho_jpn", isFavorite: false), Album(name: "Romantic Psycho (EU Edition)", artistName: "Quebonafide", location: "Madrid", image: "romantic_psycho_eu", isFavorite: false), Album(name: "Egzotyka", artistName: "Quebonafide", location: "New York", image: "egzotyka", isFavorite: true), Album(name: "Ezoteryka", artistName: "Quebonafide", location: "Ciechanów", image: "ezoteryka", isFavorite: false), Album(name: "Eklektyka", artistName: "Quebonafide", location: "Ciechanów", image: "eklektyka", isFavorite: false), Album(name: "Dla Fanów Eklektyki", artistName: "Quebonafide", location: "Warszawa", image: "dla_fanow_eklektyki", isFavorite: false), Album(name: "Dla Fanek Euforii", artistName: "Quebonafide", location: "Warszawa", image: "dla_fanek_euforii", isFavorite: false), Album(name: "Taconafide", artistName: "Quebonafide, Taco Hemingway", location: "Kraków", image: "taconafide", isFavorite: false), Album(name: "Europa", artistName: "Taco Hemingway", location: "Bruksela", image: "europa", isFavorite: false), Album(name: "Jarmark", artistName: "Taco Hemingway", location: "Warszawa", image: "jarmark", isFavorite: false), Album(name: "Szprycer", artistName: "Taco Hemingway", location: "Poznań", image: "szprycer", isFavorite: false), Album(name: "Marmur", artistName: "Taco Hemingway", location: "Gdańsk", image: "marmur", isFavorite: false), Album(name: "Wosk", artistName: "Taco Hemingway", location: "Warszawa", image: "wosk", isFavorite: false), Album(name: "Umowa o Dzieło", artistName: "Taco Hemingway", location: "Warszawa", image: "umowa_o_dzielo", isFavorite: false), Album(name: "Trójkąt Warszawski", artistName: "Taco Hemingway", location: "Warszawa", image: "trojkat_warszawski", isFavorite: false)]
                            
     var body: some View {
-        List {
-            ForEach(albums.indices, id: \.self) { index in
-//                FullImageRow(album: $albums[index])
-                
-                BasicTextImageRow(album: $albums[index])
-                    .swipeActions(edge: .leading, allowsFullSwipe: false, content: {
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "star")
-                        }
-                        .tint(.green)
-                        
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "square.and.arrow.up")
-                        }
-                        .tint(.orange)
-                        
-                    })
-                    .swipeActions(edge: .trailing, allowsFullSwipe: true, content: {
-                        Button(role:  .destructive, action: {
-                            albums.remove(at: index)
-                        }) {
-                            Label("Delete", systemImage: "trash")
-                        }
-                    })
+        NavigationView {
+            List {
+                ForEach(albums.indices, id: \.self) { index in
+    //                FullImageRow(album: $albums[index])
                     
+                    NavigationLink(destination: AlbumDetailView(album: albums[index])) {
+                        BasicTextImageRow(album: $albums[index])
+                            .swipeActions(edge: .leading, allowsFullSwipe: false, content: {
+                                Button {
+                                    
+                                } label: {
+                                    Image(systemName: "star")
+                                }
+                                .tint(.green)
+                                
+                                Button {
+                                    
+                                } label: {
+                                    Image(systemName: "square.and.arrow.up")
+                                }
+                                .tint(.orange)
+                                
+                            })
+                            .swipeActions(edge: .trailing, allowsFullSwipe: true, content: {
+                                Button(role:  .destructive, action: {
+                                    albums.remove(at: index)
+                                }) {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                        })
+                    }
+                        
+                }
+                .onDelete(perform: { indexSet in
+                    albums.remove(atOffsets: indexSet)
+                })
+                .listRowSeparator(.hidden)
             }
-            .onDelete(perform: { indexSet in
-                albums.remove(atOffsets: indexSet)
-            })
-            .listRowSeparator(.hidden)
+            .listStyle(.plain)
+            
+            .navigationTitle("MusicBud")
+            .navigationBarTitleDisplayMode(.automatic)
         }
-        .listStyle(.plain)
     }
 }
 
