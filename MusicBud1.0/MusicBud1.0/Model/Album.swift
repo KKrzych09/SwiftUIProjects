@@ -11,6 +11,9 @@ struct Album {
     var name: String = ""
     var artistName: String = ""
     var location: String = ""
+    var phone: String = ""
+    var trackList: [String] = []
+    var description: String = ""
     var image: String = ""
     var isFavorite: Bool = false
 }

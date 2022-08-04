@@ -14,6 +14,7 @@
 		8E49A1A62897B45C00562223 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1A52897B45C00562223 /* Album.swift */; };
 		8E49A1AA2897D69600562223 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1A92897D69600562223 /* ActivityView.swift */; };
 		8E49A1AC2897E29900562223 /* AlbumDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1AB2897E29900562223 /* AlbumDetailView.swift */; };
+		8EE850C6289BD4C10021D38B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE850C5289BD4C10021D38B /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		8E49A1A52897B45C00562223 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		8E49A1A92897D69600562223 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		8E49A1AB2897E29900562223 /* AlbumDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailView.swift; sourceTree = "<group>"; };
+		8EE850C5289BD4C10021D38B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				8E1A6A5E2896B94F002062CD /* AlbumListView.swift */,
 				8E49A1A92897D69600562223 /* ActivityView.swift */,
 				8E49A1AB2897E29900562223 /* AlbumDetailView.swift */,
+				8EE850C5289BD4C10021D38B /* MapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E49A1AC2897E29900562223 /* AlbumDetailView.swift in Sources */,
+				8EE850C6289BD4C10021D38B /* MapView.swift in Sources */,
 				8E1A6A5F2896B94F002062CD /* AlbumListView.swift in Sources */,
 				8E49A1AA2897D69600562223 /* ActivityView.swift in Sources */,
 				8E1A6A5D2896B94F002062CD /* MusicBud1_0App.swift in Sources */,
