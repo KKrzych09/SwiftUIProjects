@@ -11,6 +11,8 @@ struct AlbumDetailView: View {
     @Environment(\.dismiss) var dismiss
     var album: Album
     
+    @State private var showReview = false
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -107,6 +109,20 @@ struct AlbumDetailView: View {
                             .frame(height: 200)
                             .cornerRadius(20)
                     }
+                    
+                    Button(action: {
+                        self.showReview.toggle()
+                    }) {
+                        Text("Rate it")
+                            .font(.system(.headline, design: .rounded))
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                    }
+                    .tint(Color(.red))
+                    .buttonStyle(.borderedProminent)
+                    .buttonBorderShape(.roundedRectangle(radius: 25))
+                    .controlSize(.large)
+                    .padding(.bottom, 20)
+                    
                 }
                 
                 Spacer()
@@ -122,8 +138,18 @@ struct AlbumDetailView: View {
                 }) {
                     Text("\(Image(systemName: "chevron.left")) Back")
                 }
+                .opacity(showReview ? 0 : 1)
             }
         }
+        .overlay(
+            self.showReview ?
+            ZStack {
+                ReviewView(isDisplayed: $showReview, album: album)
+                    .navigationBarHidden(true)
+            }
+            
+            : nil
+        )
     }
 }
 
