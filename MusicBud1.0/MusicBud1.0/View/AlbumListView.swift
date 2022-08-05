@@ -24,6 +24,8 @@ struct AlbumListView: View {
         Album(name: "Wosk", artistName: "Taco Hemingway", location: "Warszawa", phone: "69-420-33", trackList: ["1. WOSK", "2. BXL", "3. SZCZERZE", "4. WIATR", "5. 515", "6. KOŁA"], description: "Luźna, niezapowiedziana EP-ka prosto od Taco Hemingway'a wypuszczona w trakcie prac nad nowym albumem „Marmur”.", image: "wosk", isFavorite: false),
         Album(name: "Umowa o Dzieło", artistName: "Taco Hemingway", location: "Warszawa", phone: "69-420-33", trackList: ["1. Od zera", "2. A mówiłem ci", "3. Następna stacja", "4. 6 zer", "5. +4822", "6. Awizo", "7. Białkoholicy", "8. 100km/h"], description: "Ciekawostka: na okładce widnieje Taco siedzący prawdopodobnie na stacji metra w Warszawie. Ma ze sobą walizkę, w której znajduje się jego pierwsza EP – Trójkąt Warszawski, dzięki której stał się popularny. Okładka ta jest również wykonana w podobnym stylu.", image: "umowa_o_dzielo", isFavorite: false),
         Album(name: "Trójkąt Warszawski", artistName: "Taco Hemingway", location: "Warszawa", phone: "69-420-33", trackList: ["1. Szlugi i Kalafiory", "2. Marsz, marsz", "3. Wszystko jedno", "4. Trójkąt", "5. (przerywnik)", "6. Mięso", "7. 900729"], description: "Trójkąt warszawski jest najprościej rzecz ujmując fabularną rap płytą. Opowiada o trzech bohaterach krążących po mieście szukając się nawzajem, uciekając od siebie.", image: "trojkat_warszawski", isFavorite: false)]
+    
+    @State private var showNewAlbum = false
                            
     var body: some View {
         NavigationView {
@@ -68,6 +70,17 @@ struct AlbumListView: View {
             
             .navigationTitle("MusicBud")
             .navigationBarTitleDisplayMode(.automatic)
+            .toolbar {
+                Button(action: {
+                    self.showNewAlbum = true
+                }) {
+                    Image(systemName: "plus")
+                        .accentColor(.primary)
+                }
+            }
+        }
+        .sheet(isPresented: $showNewAlbum) {
+            NewAlbumView()
         }
     }
 }

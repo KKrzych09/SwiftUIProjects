@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E01A236289CF8D9003FC2D2 /* NewAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E01A235289CF8D9003FC2D2 /* NewAlbumView.swift */; };
+		8E01A239289D02C4003FC2D2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E01A238289D02C4003FC2D2 /* ImagePicker.swift */; };
 		8E1A6A5D2896B94F002062CD /* MusicBud1_0App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1A6A5C2896B94F002062CD /* MusicBud1_0App.swift */; };
 		8E1A6A5F2896B94F002062CD /* AlbumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1A6A5E2896B94F002062CD /* AlbumListView.swift */; };
 		8E1A6A612896B955002062CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1A6A602896B955002062CD /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E01A235289CF8D9003FC2D2 /* NewAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAlbumView.swift; sourceTree = "<group>"; };
+		8E01A238289D02C4003FC2D2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		8E1A6A592896B94F002062CD /* MusicBud1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicBud1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E1A6A5C2896B94F002062CD /* MusicBud1_0App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBud1_0App.swift; sourceTree = "<group>"; };
 		8E1A6A5E2896B94F002062CD /* AlbumListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListView.swift; sourceTree = "<group>"; };
@@ -42,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E01A237289D02AA003FC2D2 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				8E01A238289D02C4003FC2D2 /* ImagePicker.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		8E1A6A502896B94F002062CD = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +73,7 @@
 		8E1A6A5B2896B94F002062CD /* MusicBud1.0 */ = {
 			isa = PBXGroup;
 			children = (
+				8E01A237289D02AA003FC2D2 /* Util */,
 				8E49A1A82897C45500562223 /* Model */,
 				8E49A1A72897C44000562223 /* View */,
 				8E1A6A5C2896B94F002062CD /* MusicBud1_0App.swift */,
@@ -86,6 +99,7 @@
 				8E49A1AB2897E29900562223 /* AlbumDetailView.swift */,
 				8EE850C5289BD4C10021D38B /* MapView.swift */,
 				8EB48280289BEFBA00BF4946 /* ReviewView.swift */,
+				8E01A235289CF8D9003FC2D2 /* NewAlbumView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -171,6 +185,8 @@
 				8E49A1AC2897E29900562223 /* AlbumDetailView.swift in Sources */,
 				8EE850C6289BD4C10021D38B /* MapView.swift in Sources */,
 				8E1A6A5F2896B94F002062CD /* AlbumListView.swift in Sources */,
+				8E01A239289D02C4003FC2D2 /* ImagePicker.swift in Sources */,
+				8E01A236289CF8D9003FC2D2 /* NewAlbumView.swift in Sources */,
 				8E49A1AA2897D69600562223 /* ActivityView.swift in Sources */,
 				8E1A6A5D2896B94F002062CD /* MusicBud1_0App.swift in Sources */,
 				8E49A1A62897B45C00562223 /* Album.swift in Sources */,
@@ -305,6 +321,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MusicBud1.0/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -333,6 +350,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MusicBud1.0/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

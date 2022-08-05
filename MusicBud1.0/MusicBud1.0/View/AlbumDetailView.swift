@@ -35,16 +35,25 @@ struct AlbumDetailView: View {
                     
                     VStack {
                         Text("My rating")
-                        Text("8/10")
-                            .padding()
-                            .background(.green)
-                            .clipShape(Circle())
+                        
+                        if let rating = album.rating, !showReview {
+                            Image(rating.image)
+                                .resizable()
+                                .frame(width: 60, height: 60)
+                                .transition(.scale)
+                        } else {
+                            Text("None")
+                                .padding()
+                                .background(.gray)
+                                .clipShape(Circle())
+                        }
                     
                     }
                     .padding(.top, 65)
                     
                     Spacer()
                 }
+                .animation(.spring(response: 0.2, dampingFraction: 0.3, blendDuration: 0.3), value: album.rating)
 //                .frame(maxWidth: .infinity, maxHeight: 200)
                 
                 VStack(alignment: .leading) {

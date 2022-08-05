@@ -6,16 +6,9 @@
 //
 
 import Foundation
+import Combine
 
-struct Album {
-    var name: String = ""
-    var artistName: String = ""
-    var location: String = ""
-    var phone: String = ""
-    var trackList: [String] = []
-    var description: String = ""
-    var image: String = ""
-    var isFavorite: Bool = false
+class Album: ObservableObject {
     
     enum Rating: String, CaseIterable {
         case awesome
@@ -33,5 +26,27 @@ struct Album {
             case .terrible: return "angry"
             }
         }
+    }
+    
+    @Published var name: String
+    @Published var artistName: String
+    @Published var location: String
+    @Published var phone: String
+    @Published var trackList: [String]
+    @Published var description: String
+    @Published var image: String
+    @Published var isFavorite: Bool = false
+    @Published var rating: Rating?
+    
+    init(name: String, artistName: String, location: String, phone: String, trackList: [String], description: String, image: String, isFavorite: Bool = false, rating: Rating? = nil) {
+        self.name = name
+        self.artistName = artistName
+        self.location = location
+        self.phone = phone
+        self.trackList = trackList
+        self.description = description
+        self.image = image
+        self.isFavorite = isFavorite
+        self.rating = rating
     }
 }
