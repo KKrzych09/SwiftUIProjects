@@ -9,9 +9,17 @@ import SwiftUI
 
 struct NewAlbumView: View {
     
+    @ObservedObject private var albumFormViewModel: AlbumFormViewModel
+    
+    init() {
+        let viewModel = AlbumFormViewModel()
+        viewModel.image = UIImage(named: "newphoto")!
+        albumFormViewModel = viewModel
+    }
+    
+    @Environment(\.managedObjectContext) var context
     @Environment(\.dismiss) var dismiss
     
-    @State private var albumImage = UIImage(named: "newphoto")!
     @State private var showPhotoOptions = false
     
     enum PhotoSource: Identifiable {
@@ -30,7 +38,7 @@ struct NewAlbumView: View {
             
             ScrollView {
                 VStack {
-                    Image(uiImage: albumImage)
+                    Image(uiImage: albumFormViewModel.image)
                         .resizable()
                         .scaledToFill()
                         .frame(minWidth: 0, maxWidth: .infinity)
@@ -42,15 +50,15 @@ struct NewAlbumView: View {
                             self.showPhotoOptions.toggle()
                         }
                     
-                    FormTextField(label: "Name", placeholder: "Fill in the album name", value: .constant(""))
+                    FormTextField(label: "Name", placeholder: "Fill in the album name", value: $albumFormViewModel.name)
                     
-                    FormTextField(label: "Artist Name", placeholder: "Fill in the artist name", value: .constant(""))
+                    FormTextField(label: "Artist Name", placeholder: "Fill in the artist name", value: $albumFormViewModel.artistName)
                     
-                    FormTextField(label: "Address", placeholder: "Fill in the album address", value: .constant(""))
+                    FormTextField(label: "Address", placeholder: "Fill in the album address", value: $albumFormViewModel.location)
                     
-                    FormTextField(label: "Phone", placeholder: "Fill in the label phone", value: .constant(""))
+                    FormTextField(label: "Phone", placeholder: "Fill in the label phone", value: $albumFormViewModel.phone)
                     
-                    FormTextView(label: "Description", value: .constant(""), height: 100)
+                    FormTextView(label: "Description", value: $albumFormViewModel.description, height: 100)
                     
                 }
                 .padding()
@@ -69,9 +77,14 @@ struct NewAlbumView: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Text("Save")
-                        .font(.headline)
-                        .foregroundColor(.black)
+                    Button(action: {
+                        save()
+                        dismiss()
+                    }) {
+                        Text("Save")
+                            .font(.headline)
+                            .accentColor(.primary)
+                    }
                 }
             }
         }
@@ -91,10 +104,29 @@ struct NewAlbumView: View {
         }
         .fullScreenCover(item: $photoSource) { source in
             switch source {
-            case .photoLibrary: ImagePicker(sourceType: .photoLibrary, selectedImage: $albumImage).ignoresSafeArea()
+            case .photoLibrary: ImagePicker(sourceType: .photoLibrary, selectedImage: $albumFormViewModel.image).ignoresSafeArea()
                 
-            case .camera: ImagePicker(sourceType: .camera, selectedImage: $albumImage).ignoresSafeArea()
+            case .camera: ImagePicker(sourceType: .camera, selectedImage: $albumFormViewModel.image).ignoresSafeArea()
             }
+        }
+    }
+    
+    private func save() {
+        let album = Album(context: context)
+        
+        album.name = albumFormViewModel.name
+        album.artistName = albumFormViewModel.artistName
+        album.location = albumFormViewModel.location
+        album.phone = albumFormViewModel.phone
+        album.image = albumFormViewModel.image.pngData()!
+        album.summary = albumFormViewModel.description
+        album.isFavorite = false
+        
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save the record...")
+            print(error.localizedDescription)
         }
     }
 }

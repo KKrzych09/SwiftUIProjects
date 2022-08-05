@@ -17,7 +17,7 @@ struct ReviewView: View {
     
     var body: some View {
         ZStack {
-            Image(album.image)
+            Image(uiImage: UIImage(data: album.image)!)
                 .resizable()
                 .scaledToFill()
                 .frame(minWidth: 0, maxWidth: .infinity)
@@ -75,6 +75,6 @@ struct ReviewView: View {
 
 struct ReviewView_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewView(isDisplayed: .constant(true), album: Album(name: "Egzotyka", artistName: "Quebonafide", location: "New York", phone: "69-420-33", trackList: ["1. Oh My Buddha (Ft. DJ Flip)", "2. quebahombre", "3. Szejk", "4. Bollywood (Ft. Czesław Mozil)", "5. Luis Nazário de Lima (Ft. DJ Ike)", "6. Madagaskar", "7. Changa (Ft. iFani)", "8. C'est la Vie", "9. Zorza", "10. Między słowami (Ft. Young Lungs)", "11. Arabska noc (Ft. Solar & Wac Toja", "12. To nie jest hip-hop (Ft. KRS-One)", "13. Bumerang", "14. Odyseusz (Ft. DJ Flip)"], description: "Egzotyka to materiał, który powstał z podróży na siedem różnych kontynentów. Łącznie raper odwiedził 60 krajów. Miejsca odwiedzane przez Quebonafide były inspiracją do jego utworów i klipów.", image: "egzotyka", isFavorite: true))
+        ReviewView(isDisplayed: .constant(true), album: (PersistenceController.testData?.first)!)
     }
 }

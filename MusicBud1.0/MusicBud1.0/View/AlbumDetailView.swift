@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct AlbumDetailView: View {
+    @Environment(\.managedObjectContext) var context
     @Environment(\.dismiss) var dismiss
-    var album: Album
+    
+    @ObservedObject var album: Album
     
     @State private var showReview = false
     
@@ -17,7 +19,7 @@ struct AlbumDetailView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 HStack {
-                    Image(album.image)
+                    Image(uiImage: UIImage(data: album.image)!)
                         .resizable()
                         .border(.black, width: 1)
                         .frame(maxWidth: 150, maxHeight: 150)
@@ -71,10 +73,9 @@ struct AlbumDetailView: View {
                 
                     ScrollView {
                         VStack(alignment: .leading) {
-                            ForEach(album.trackList, id: \.self) { track in
-                                    Text(track)
-                                    .font(.system(.body, design: .rounded))
-                            }
+                            Text("track")
+                                .font(.system(.body, design: .rounded))
+                            
                         }
                         .frame(maxWidth: .infinity, maxHeight: 350)
                         .padding([.top, .bottom])
@@ -104,7 +105,7 @@ struct AlbumDetailView: View {
                     VStack(alignment: .leading) {
                         Text("INFO")
                             .font(.system(.headline, design: .rounded))
-                        Text(album.description)
+                        Text(album.summary)
                     }
                     .padding(.top)
                     
@@ -159,13 +160,19 @@ struct AlbumDetailView: View {
             
             : nil
         )
+        .onChange(of: album) { _ in
+            if self.context.hasChanges {
+                try? self.context.save()
+            }
+        }
     }
 }
 
 struct AlbumDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AlbumDetailView(album: Album(name: "Egzotyka", artistName: "Quebonafide", location: "New York", phone: "69-420-33", trackList: ["1. Oh My Buddha (Ft. DJ Flip)", "2. quebahombre", "3. Szejk", "4. Bollywood (Ft. Czesław Mozil)", "5. Luis Nazário de Lima (Ft. DJ Ike)", "6. Madagaskar", "7. Changa (Ft. iFani)", "8. C'est la Vie", "9. Zorza", "10. Między słowami (Ft. Young Lungs)", "11. Arabska noc (Ft. Solar & Wac Toja", "12. To nie jest hip-hop (Ft. KRS-One)", "13. Bumerang", "14. Odyseusz (Ft. DJ Flip)"], description: "Egzotyka to materiał, który powstał z podróży na siedem różnych kontynentów. Łącznie raper odwiedził 60 krajów. Miejsca odwiedzane przez Quebonafide były inspiracją do jego utworów i klipów.", image: "egzotyka", isFavorite: true))
+            AlbumDetailView(album: (PersistenceController.testData?.first)!)
+                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }
         .accentColor(.white)
     }

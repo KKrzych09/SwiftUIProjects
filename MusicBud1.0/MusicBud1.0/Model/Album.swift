@@ -7,8 +7,23 @@
 
 import Foundation
 import Combine
+import CoreData
 
-class Album: ObservableObject {
+public class Album: ObservableObject {
+    
+    @NSManaged public var name: String
+    @NSManaged public var artistName: String
+    @NSManaged public var location: String
+    @NSManaged public var phone: String
+//    @NSManaged public var trackList: [String]
+    @NSManaged public var summary: String
+    @NSManaged public var image: Data
+    @NSManaged public var isFavorite: Bool
+    @NSManaged public var ratingText: String?
+    
+}
+    
+extension Album {
     
     enum Rating: String, CaseIterable {
         case awesome
@@ -28,25 +43,18 @@ class Album: ObservableObject {
         }
     }
     
-    @Published var name: String
-    @Published var artistName: String
-    @Published var location: String
-    @Published var phone: String
-    @Published var trackList: [String]
-    @Published var description: String
-    @Published var image: String
-    @Published var isFavorite: Bool = false
-    @Published var rating: Rating?
-    
-    init(name: String, artistName: String, location: String, phone: String, trackList: [String], description: String, image: String, isFavorite: Bool = false, rating: Rating? = nil) {
-        self.name = name
-        self.artistName = artistName
-        self.location = location
-        self.phone = phone
-        self.trackList = trackList
-        self.description = description
-        self.image = image
-        self.isFavorite = isFavorite
-        self.rating = rating
+    var rating: Rating? {
+        get {
+            guard let ratingText = ratingText else {
+                return nil
+            }
+            
+            return Rating(rawValue: ratingText)
+        }
+        
+        set {
+            self.ratingText = newValue?.rawValue
+        }
     }
 }
+

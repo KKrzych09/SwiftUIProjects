@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct MusicBud1_0App: App {
+    
+    let persistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
             AlbumListView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

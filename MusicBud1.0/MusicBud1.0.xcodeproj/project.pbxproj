@@ -16,6 +16,9 @@
 		8E49A1A62897B45C00562223 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1A52897B45C00562223 /* Album.swift */; };
 		8E49A1AA2897D69600562223 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1A92897D69600562223 /* ActivityView.swift */; };
 		8E49A1AC2897E29900562223 /* AlbumDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1AB2897E29900562223 /* AlbumDetailView.swift */; };
+		8E88E128289D1C5A0061A3B4 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E88E127289D1C5A0061A3B4 /* Persistence.swift */; };
+		8E88E12B289D1DAD0061A3B4 /* MusicBud1.0.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E88E129289D1DAD0061A3B4 /* MusicBud1.0.xcdatamodeld */; };
+		8E88E12E289D328D0061A3B4 /* AlbumFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E88E12D289D328D0061A3B4 /* AlbumFormViewModel.swift */; };
 		8EB48281289BEFBA00BF4946 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB48280289BEFBA00BF4946 /* ReviewView.swift */; };
 		8EE850C6289BD4C10021D38B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE850C5289BD4C10021D38B /* MapView.swift */; };
 /* End PBXBuildFile section */
@@ -31,6 +34,9 @@
 		8E49A1A52897B45C00562223 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		8E49A1A92897D69600562223 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		8E49A1AB2897E29900562223 /* AlbumDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailView.swift; sourceTree = "<group>"; };
+		8E88E127289D1C5A0061A3B4 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		8E88E12A289D1DAD0061A3B4 /* MusicBud1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicBud1.0.xcdatamodel; sourceTree = "<group>"; };
+		8E88E12D289D328D0061A3B4 /* AlbumFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumFormViewModel.swift; sourceTree = "<group>"; };
 		8EB48280289BEFBA00BF4946 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		8EE850C5289BD4C10021D38B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,12 +79,14 @@
 		8E1A6A5B2896B94F002062CD /* MusicBud1.0 */ = {
 			isa = PBXGroup;
 			children = (
+				8E88E12C289D32730061A3B4 /* ViewModel */,
 				8E01A237289D02AA003FC2D2 /* Util */,
 				8E49A1A82897C45500562223 /* Model */,
 				8E49A1A72897C44000562223 /* View */,
 				8E1A6A5C2896B94F002062CD /* MusicBud1_0App.swift */,
 				8E1A6A602896B955002062CD /* Assets.xcassets */,
 				8E1A6A622896B955002062CD /* Preview Content */,
+				8E88E129289D1DAD0061A3B4 /* MusicBud1.0.xcdatamodeld */,
 			);
 			path = MusicBud1.0;
 			sourceTree = "<group>";
@@ -108,8 +116,17 @@
 			isa = PBXGroup;
 			children = (
 				8E49A1A52897B45C00562223 /* Album.swift */,
+				8E88E127289D1C5A0061A3B4 /* Persistence.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8E88E12C289D32730061A3B4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8E88E12D289D328D0061A3B4 /* AlbumFormViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,11 +203,14 @@
 				8EE850C6289BD4C10021D38B /* MapView.swift in Sources */,
 				8E1A6A5F2896B94F002062CD /* AlbumListView.swift in Sources */,
 				8E01A239289D02C4003FC2D2 /* ImagePicker.swift in Sources */,
+				8E88E12E289D328D0061A3B4 /* AlbumFormViewModel.swift in Sources */,
+				8E88E12B289D1DAD0061A3B4 /* MusicBud1.0.xcdatamodeld in Sources */,
 				8E01A236289CF8D9003FC2D2 /* NewAlbumView.swift in Sources */,
 				8E49A1AA2897D69600562223 /* ActivityView.swift in Sources */,
 				8E1A6A5D2896B94F002062CD /* MusicBud1_0App.swift in Sources */,
 				8E49A1A62897B45C00562223 /* Album.swift in Sources */,
 				8EB48281289BEFBA00BF4946 /* ReviewView.swift in Sources */,
+				8E88E128289D1C5A0061A3B4 /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +411,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8E88E129289D1DAD0061A3B4 /* MusicBud1.0.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8E88E12A289D1DAD0061A3B4 /* MusicBud1.0.xcdatamodel */,
+			);
+			currentVersion = 8E88E12A289D1DAD0061A3B4 /* MusicBud1.0.xcdatamodel */;
+			path = MusicBud1.0.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8E1A6A512896B94F002062CD /* Project object */;
 }
