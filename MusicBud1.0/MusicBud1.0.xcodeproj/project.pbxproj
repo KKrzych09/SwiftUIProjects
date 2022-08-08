@@ -14,6 +14,9 @@
 		8E1A6A612896B955002062CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1A6A602896B955002062CD /* Assets.xcassets */; };
 		8E1A6A642896B955002062CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1A6A632896B955002062CD /* Preview Assets.xcassets */; };
 		8E38DF4C28A11309005E64AF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E38DF4B28A11309005E64AF /* MainView.swift */; };
+		8E38DF5028A119E4005E64AF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E38DF4F28A119E4005E64AF /* SettingsView.swift */; };
+		8E38DF5228A11B89005E64AF /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E38DF5128A11B89005E64AF /* WebView.swift */; };
+		8E38DF5428A11EA6005E64AF /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E38DF5328A11EA6005E64AF /* SafariView.swift */; };
 		8E49A1A62897B45C00562223 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1A52897B45C00562223 /* Album.swift */; };
 		8E49A1AA2897D69600562223 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1A92897D69600562223 /* ActivityView.swift */; };
 		8E49A1AC2897E29900562223 /* AlbumDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1AB2897E29900562223 /* AlbumDetailView.swift */; };
@@ -31,6 +34,9 @@
 		8E1A6A602896B955002062CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E1A6A632896B955002062CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8E38DF4B28A11309005E64AF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		8E38DF4F28A119E4005E64AF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8E38DF5128A11B89005E64AF /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		8E38DF5328A11EA6005E64AF /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		8E49A1A52897B45C00562223 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		8E49A1A92897D69600562223 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		8E49A1AB2897E29900562223 /* AlbumDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailView.swift; sourceTree = "<group>"; };
@@ -106,6 +112,9 @@
 				8E01A235289CF8D9003FC2D2 /* NewAlbumView.swift */,
 				8E9C77B028A0EDA000AB03C0 /* TutorialView.swift */,
 				8E38DF4B28A11309005E64AF /* MainView.swift */,
+				8E38DF4F28A119E4005E64AF /* SettingsView.swift */,
+				8E38DF5128A11B89005E64AF /* WebView.swift */,
+				8E38DF5328A11EA6005E64AF /* SafariView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,13 +199,16 @@
 			files = (
 				8E49A1AC2897E29900562223 /* AlbumDetailView.swift in Sources */,
 				8EE850C6289BD4C10021D38B /* MapView.swift in Sources */,
+				8E38DF5228A11B89005E64AF /* WebView.swift in Sources */,
 				8E1A6A5F2896B94F002062CD /* AlbumListView.swift in Sources */,
 				8E01A239289D02C4003FC2D2 /* ImagePicker.swift in Sources */,
 				8E01A236289CF8D9003FC2D2 /* NewAlbumView.swift in Sources */,
+				8E38DF5428A11EA6005E64AF /* SafariView.swift in Sources */,
 				8E49A1AA2897D69600562223 /* ActivityView.swift in Sources */,
 				8E1A6A5D2896B94F002062CD /* MusicBud1_0App.swift in Sources */,
 				8E38DF4C28A11309005E64AF /* MainView.swift in Sources */,
 				8E49A1A62897B45C00562223 /* Album.swift in Sources */,
+				8E38DF5028A119E4005E64AF /* SettingsView.swift in Sources */,
 				8E9C77B128A0EDA000AB03C0 /* TutorialView.swift in Sources */,
 				8EB48281289BEFBA00BF4946 /* ReviewView.swift in Sources */,
 			);
