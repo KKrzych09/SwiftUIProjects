@@ -11,7 +11,7 @@ import SwiftUI
 struct MusicBud1_0App: App {
     var body: some Scene {
         WindowGroup {
-            AlbumListView()
+            MainView()
         }
     }
 }

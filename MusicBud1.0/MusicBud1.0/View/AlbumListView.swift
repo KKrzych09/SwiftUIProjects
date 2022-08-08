@@ -93,9 +93,9 @@ struct AlbumListView: View {
                 let searchResults = albums.filter { $0.name.contains(searchText) && $0.artistName.contains(searchText) }
             }
         }
-        .sheet(isPresented: $showWalkthrough) {
-            TutorialView()
-        }
+//        .sheet(isPresented: $showWalkthrough) {
+//            TutorialView()
+//        }
     }
 }
 

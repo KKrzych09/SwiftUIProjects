@@ -13,6 +13,7 @@
 		8E1A6A5F2896B94F002062CD /* AlbumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1A6A5E2896B94F002062CD /* AlbumListView.swift */; };
 		8E1A6A612896B955002062CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1A6A602896B955002062CD /* Assets.xcassets */; };
 		8E1A6A642896B955002062CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1A6A632896B955002062CD /* Preview Assets.xcassets */; };
+		8E38DF4C28A11309005E64AF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E38DF4B28A11309005E64AF /* MainView.swift */; };
 		8E49A1A62897B45C00562223 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1A52897B45C00562223 /* Album.swift */; };
 		8E49A1AA2897D69600562223 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1A92897D69600562223 /* ActivityView.swift */; };
 		8E49A1AC2897E29900562223 /* AlbumDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A1AB2897E29900562223 /* AlbumDetailView.swift */; };
@@ -29,6 +30,7 @@
 		8E1A6A5E2896B94F002062CD /* AlbumListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListView.swift; sourceTree = "<group>"; };
 		8E1A6A602896B955002062CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E1A6A632896B955002062CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8E38DF4B28A11309005E64AF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8E49A1A52897B45C00562223 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		8E49A1A92897D69600562223 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		8E49A1AB2897E29900562223 /* AlbumDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				8EB48280289BEFBA00BF4946 /* ReviewView.swift */,
 				8E01A235289CF8D9003FC2D2 /* NewAlbumView.swift */,
 				8E9C77B028A0EDA000AB03C0 /* TutorialView.swift */,
+				8E38DF4B28A11309005E64AF /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				8E01A236289CF8D9003FC2D2 /* NewAlbumView.swift in Sources */,
 				8E49A1AA2897D69600562223 /* ActivityView.swift in Sources */,
 				8E1A6A5D2896B94F002062CD /* MusicBud1_0App.swift in Sources */,
+				8E38DF4C28A11309005E64AF /* MainView.swift in Sources */,
 				8E49A1A62897B45C00562223 /* Album.swift in Sources */,
 				8E9C77B128A0EDA000AB03C0 /* TutorialView.swift in Sources */,
 				8EB48281289BEFBA00BF4946 /* ReviewView.swift in Sources */,
