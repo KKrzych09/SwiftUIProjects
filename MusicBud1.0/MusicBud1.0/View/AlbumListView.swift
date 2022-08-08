@@ -26,6 +26,8 @@ struct AlbumListView: View {
         Album(name: "Trójkąt Warszawski", artistName: "Taco Hemingway", location: "Warszawa", phone: "69-420-33", trackList: ["1. Szlugi i Kalafiory", "2. Marsz, marsz", "3. Wszystko jedno", "4. Trójkąt", "5. (przerywnik)", "6. Mięso", "7. 900729"], description: "Trójkąt warszawski jest najprościej rzecz ujmując fabularną rap płytą. Opowiada o trzech bohaterach krążących po mieście szukając się nawzajem, uciekając od siebie.", image: "trojkat_warszawski", isFavorite: false)]
     
     @State private var showNewAlbum = false
+    @State private var searchText = ""
+    @State private var showWalkthrough = true
                            
     var body: some View {
         NavigationView {
@@ -81,6 +83,18 @@ struct AlbumListView: View {
         }
         .sheet(isPresented: $showNewAlbum) {
             NewAlbumView()
+        }
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search album...") {
+            Text("Que").searchCompletion("Quebonafide")
+            Text("Taco").searchCompletion("Taco Hemingway")
+        }
+        .onChange(of: searchText) { searchText in
+            if !searchText.isEmpty {
+                let searchResults = albums.filter { $0.name.contains(searchText) && $0.artistName.contains(searchText) }
+            }
+        }
+        .sheet(isPresented: $showWalkthrough) {
+            TutorialView()
         }
     }
 }
