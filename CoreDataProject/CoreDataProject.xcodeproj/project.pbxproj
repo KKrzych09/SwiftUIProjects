@@ -11,6 +11,7 @@
 		8E1DC2F328A6339C00E33520 /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DC2F128A6339C00E33520 /* Movie+CoreDataProperties.swift */; };
 		8E1DC2F628A640CC00E33520 /* Singer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DC2F428A640CC00E33520 /* Singer+CoreDataClass.swift */; };
 		8E1DC2F728A640CC00E33520 /* Singer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DC2F528A640CC00E33520 /* Singer+CoreDataProperties.swift */; };
+		8E1DC2FB28A6423C00E33520 /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DC2FA28A6423C00E33520 /* FilteredList.swift */; };
 		8E7DE19828A56F37008FD6BE /* CoreDataProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7DE19728A56F37008FD6BE /* CoreDataProjectApp.swift */; };
 		8E7DE19A28A56F37008FD6BE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7DE19928A56F37008FD6BE /* ContentView.swift */; };
 		8E7DE19C28A56F3C008FD6BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E7DE19B28A56F3C008FD6BE /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		8E1DC2F128A6339C00E33520 /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8E1DC2F428A640CC00E33520 /* Singer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Singer+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8E1DC2F528A640CC00E33520 /* Singer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Singer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8E1DC2FA28A6423C00E33520 /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
 		8E7DE19428A56F37008FD6BE /* CoreDataProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7DE19728A56F37008FD6BE /* CoreDataProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataProjectApp.swift; sourceTree = "<group>"; };
 		8E7DE19928A56F37008FD6BE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				8E7DE19D28A56F3C008FD6BE /* Preview Content */,
 				8E7DE1A528A56FA7008FD6BE /* CoreDataProject.xcdatamodeld */,
 				8E7DE1A828A56FEB008FD6BE /* DataController.swift */,
+				8E1DC2FA28A6423C00E33520 /* FilteredList.swift */,
 			);
 			path = CoreDataProject;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			files = (
 				8E1DC2F628A640CC00E33520 /* Singer+CoreDataClass.swift in Sources */,
 				8E7DE19A28A56F37008FD6BE /* ContentView.swift in Sources */,
+				8E1DC2FB28A6423C00E33520 /* FilteredList.swift in Sources */,
 				8E7DE1A928A56FEB008FD6BE /* DataController.swift in Sources */,
 				8E7DE19828A56F37008FD6BE /* CoreDataProjectApp.swift in Sources */,
 				8E1DC2F228A6339C00E33520 /* Movie+CoreDataClass.swift in Sources */,
