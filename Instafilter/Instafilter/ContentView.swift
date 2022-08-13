@@ -12,38 +12,37 @@ import CoreImage.CIFilterBuiltins
 struct ContentView: View {
     
     @State private var image: Image?
+    @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
     
     var body: some View {
         VStack {
             image?
                 .resizable()
                 .scaledToFit()
+            
+            Button("Select Image") {
+                showingImagePicker = true
+            }
+            
+            Button("Save Image") {
+                guard let inputImage = inputImage else { return }
+                
+                let imageSaver = ImageSaver()
+                imageSaver.writeToPhotoAlbum(image: inputImage)
+            }
         }
-        .onAppear(perform: loadImage)
+        .sheet(isPresented: $showingImagePicker) {
+            ImagePicker(image: $inputImage)
+        }
+        .onChange(of: inputImage) { _ in loadImage() }
     }
     
     func loadImage() {
-        guard let inputImage = UIImage(named: "Example") else { return }
-        let beginImage = CIImage(image: inputImage)
+        guard let inputImage = inputImage else { return }
+        image = Image(uiImage: inputImage)
         
-        let context = CIContext()
-        let currentFilter = CIFilter.twirlDistortion()
-        currentFilter.inputImage = beginImage
-        
-        currentFilter.radius = 1000
-        currentFilter.center = CGPoint(x: inputImage.size.width / 2, y: inputImage.size.height / 2)
-        
-        // get a CIImage from out filter or exit if that fails
-        guard let outputImage = currentFilter.outputImage else { return }
-        
-        // attempt to get a CGImage from our CIImage
-        if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
-            // convert that to a UIImage
-            let uiImage = UIImage(cgImage: cgimg)
-            
-            // and convert that to SwiftUI image
-            image = Image(uiImage: uiImage)
-        }
+        UIImageWriteToSavedPhotosAlbum(inputImage, nil, nil, nil)
     }
 }
 
