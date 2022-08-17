@@ -57,7 +57,7 @@ struct ContentView: View {
                     Spacer()
                     
                     Button("Save") {
-                        // save the picture
+                        save()
                     }
                 }
             }
