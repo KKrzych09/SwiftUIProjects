@@ -6,16 +6,62 @@
 //
 
 import SwiftUI
-
-enum FilterType {
-    case none, contacted, uncontacted
-}
+import CodeScanner
 
 struct ProspectsView: View {
+    enum FilterType {
+        case none, contacted, uncontacted
+    }
     
     @EnvironmentObject var prospects: Prospects
+    @State private var isShowingScanner = false
     
     let filter: FilterType
+    
+    var body: some View {
+        NavigationView {
+            // I'm creating a list to loop over filteredProspects array. This will show both title and email for each prospect
+            //using VStack, and I'm also using ForEach so I can add deleting later on.
+            List {
+                ForEach(filteredProspects) { prospect in
+                    VStack(alignment: .leading) {
+                        Text(prospect.name)
+                            .font(.headline)
+                        Text(prospect.emailAddress)
+                            .foregroundColor(.secondary)
+                    }
+                    .swipeActions {
+                        if prospect.isContacted {
+                            Button {
+                                prospects.toggle(prospect)
+                            } label: {
+                                Label("Mark Unconctacted", systemImage: "person.crop.circle.badge.xmark")
+                            }
+                            .tint(.blue)
+                        } else {
+                            Button {
+                                prospects.toggle(prospect)
+                            } label: {
+                                Label("Mark contacted", systemImage: "person.crop.circle.fill.badge.checkmark")
+                            }
+                            .tint(.green)
+                        }
+                    }
+                }
+            }
+            .navigationTitle(title)
+            .toolbar {
+                Button {
+                    isShowingScanner = true
+                } label: {
+                    Label("Scan", systemImage: "qrcode.viewfinder")
+                }
+            }
+            .sheet(isPresented: $isShowingScanner) {
+                CodeScannerView(codeTypes: [.qr], simulatedData: "Mariusz Pudzianowski\nmario@strong.man", completion: handleScan)
+            }
+        }
+    }
     
     var title: String {
         switch filter {
@@ -43,18 +89,23 @@ struct ProspectsView: View {
         }
     }
     
-    var body: some View {
-        // I'm creating a list to loop over filteredProspects array. This will show both title and email for each prospect
-        //using VStack, and I'm also using ForEach so I can add deleting later on.
-        List {
-            ForEach(filteredProspects) { prospect in
-                VStack(alignment: .leading) {
-                    Text(prospect.name)
-                        .font(.headline)
-                    Text(prospect.emailAddress)
-                        .foregroundColor(.secondary)
-                }
-            }
+    func handleScan(result: Result<ScanResult, ScanError>) {
+        isShowingScanner = false
+        
+        // If scanning comes back succesfully then I can pull apart the code string into needed components
+        //and use them to create a new Prospect.
+        switch result {
+        case .success(let result):
+            let details = result.string.components(separatedBy: "\n")
+            guard details.count == 2 else { return }
+            
+            let person = Prospect()
+            person.name = details[0]
+            person.emailAddress = details[1]
+            
+            prospects.add(person)
+        case .failure(let error):
+            print("Scanning failed: \(error.localizedDescription)")
         }
     }
 }
