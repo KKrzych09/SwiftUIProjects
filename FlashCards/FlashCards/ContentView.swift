@@ -16,7 +16,7 @@ extension View {
 
 struct ContentView: View {
     
-    @State private var cards = [Card](repeating: Card.example, count: 10)
+    @State private var cards = [Card]()
     
     // Detecting when app moves to background or foreground
     @Environment(\.scenePhase) var scenePhase
@@ -26,6 +26,8 @@ struct ContentView: View {
     //thread.
     @State private var timeRemaining = 100
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    @State private var showingEditScreen = false
     
     var body: some View {
         ZStack {
@@ -47,6 +49,7 @@ struct ContentView: View {
                     ForEach(0..<cards.count, id: \.self) { index in
                         CardView(card: cards[index])
                             .stacked(at: index, in: cards.count)
+                            .allowsHitTesting(index == cards.count - 1)
                     }
                 }
                 .allowsHitTesting(timeRemaining > 0)
@@ -59,6 +62,26 @@ struct ContentView: View {
                         .clipShape(Capsule())
                 }
             }
+            
+            VStack {
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        showingEditScreen = true
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .padding()
+                            .background(.black.opacity(0.7))
+                            .clipShape(Circle())
+                    }
+                }
+                
+                Spacer()
+            }
+            .foregroundColor(.white)
+            .font(.largeTitle)
+            .padding()
         }
         // Counting down the time.
         .onReceive(timer) { time in
@@ -78,6 +101,8 @@ struct ContentView: View {
                 isActive = false
             }
         }
+        .sheet(isPresented: $showingEditScreen, onDismiss: resetCards, content: EditCards.init)
+        .onAppear(perform: resetCards)
     }
     
     func removeCard(at index: Int) {
@@ -90,9 +115,19 @@ struct ContentView: View {
     
     // Method to reset the app
     func resetCards() {
-        cards = [Card](repeating: Card.example, count: 10)
         timeRemaining = 100
         isActive = true
+        
+        // Refill the cards property with all saved cards when the app launches or when user edits their cards
+        loadData()
+    }
+    
+    func loadData() {
+        if let data = UserDefaults.standard.data(forKey: "Cards") {
+            if let decoded = try? JSONDecoder().decode([Card].self, from: data) {
+                cards = decoded
+            }
+        }
     }
 }
 
